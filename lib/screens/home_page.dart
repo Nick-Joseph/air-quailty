@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,16 +12,16 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
-              children: [
+              children: const [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Icon(
                     Icons.notification_add_outlined,
                     color: Colors.black,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Icon(
                     Icons.settings,
                     color: Colors.black,
@@ -38,8 +36,8 @@ class HomePage extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            decoration:
-                BoxDecoration(color: Colors.red, shape: BoxShape.rectangle),
+            decoration: const BoxDecoration(
+                color: Colors.red, shape: BoxShape.rectangle),
           ),
         ),
       ),
@@ -49,11 +47,11 @@ class HomePage extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text(
+                const Text(
                   'Hello Mikel',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -61,13 +59,13 @@ class HomePage extends StatelessWidget {
                     width: 72,
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: Text(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xffFECAA9),
+                        side: const BorderSide(color: Colors.black, width: 2),
+                      ),
+                      child: const Text(
                         '+ Add',
                         style: TextStyle(color: Colors.black),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xffFECAA9),
-                        side: BorderSide(color: Colors.black, width: 2),
                       ),
                     ),
                   ),
@@ -75,7 +73,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
             Row(
-              children: [
+              children: const [
                 Text(
                   '23 Novemeber 2022',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
@@ -100,14 +98,14 @@ class HomePage extends StatelessWidget {
                                   height: 40,
                                   width: 40,
                                   child: Container(
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color: Colors.red,
                                         shape: BoxShape.rectangle),
                                   ),
                                 ),
                               ),
                               Column(
-                                children: [
+                                children: const [
                                   Text(
                                     'Jakarta',
                                     style:
@@ -119,19 +117,19 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              Text(
+                              const Text(
                                 '30 AQI US',
                                 style: TextStyle(fontSize: 12),
                               ),
                             ],
                           ),
-                          Divider(
+                          const Divider(
                             color: Colors.black,
                             indent: 5,
                             endIndent: 5,
                           ),
                           Row(
-                            children: [],
+                            children: const [],
                           )
                         ],
                       ),
@@ -156,14 +154,14 @@ class HomePage extends StatelessWidget {
                                 height: 40,
                                 width: 40,
                                 child: Container(
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       color: Colors.red,
                                       shape: BoxShape.rectangle),
                                 ),
                               ),
                             ),
                             Column(
-                              children: [
+                              children: const [
                                 Text(
                                   'Jakarta',
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -174,19 +172,19 @@ class HomePage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Text(
+                            const Text(
                               '30 AQI US',
                               style: TextStyle(fontSize: 12),
                             ),
                           ],
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.black,
                           indent: 5,
                           endIndent: 5,
                         ),
                         Row(
-                          children: [],
+                          children: const [],
                         ),
                       ],
                     ),
@@ -194,7 +192,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
             SizedBox(
@@ -203,7 +201,7 @@ class HomePage extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: Color(0xff3FB9B1),
+                  color: const Color(0xff3FB9B1),
                   border: Border.all(),
                 ),
                 child: Row(
@@ -216,26 +214,27 @@ class HomePage extends StatelessWidget {
                         width: 72,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xffFECAA9),
+                            side:
+                                const BorderSide(color: Colors.black, width: 2),
+                          ),
+                          child: const Text(
                             'Home',
                             style: TextStyle(color: Colors.black),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xffFECAA9),
-                            side: BorderSide(color: Colors.black, width: 2),
                           ),
                         ),
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.navigation_outlined,
                       color: Colors.white,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.graphic_eq_outlined,
                       color: Colors.white,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.radio_button_checked_outlined,
                       color: Colors.white,
                     ),

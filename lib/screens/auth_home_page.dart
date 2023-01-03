@@ -1,10 +1,7 @@
-import 'dart:ui';
-
 import 'package:dribble_air_app/screens/home_page.dart';
 import 'package:dribble_air_app/widgets/check_box.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AuthHomPage extends StatefulWidget {
   const AuthHomPage({Key? key}) : super(key: key);
@@ -27,8 +24,8 @@ class _AuthHomPageState extends State<AuthHomPage> {
         children: [
           Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
+              const Padding(
+                padding: EdgeInsets.all(20.0),
                 child: Text(
                   'Welcome back!',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -36,8 +33,8 @@ class _AuthHomPageState extends State<AuthHomPage> {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
+          const Padding(
+            padding: EdgeInsets.all(10.0),
             child: Text(
               'Use your credentials below and login to your account',
               style: TextStyle(color: Colors.grey),
@@ -47,7 +44,7 @@ class _AuthHomPageState extends State<AuthHomPage> {
             padding: const EdgeInsets.all(20.0),
             child: TextFormField(
               onChanged: (newValue) {},
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   hintText: "Enter Email",
                   labelText: "Email address",
                   border: OutlineInputBorder()),
@@ -57,7 +54,7 @@ class _AuthHomPageState extends State<AuthHomPage> {
             padding: const EdgeInsets.all(20.0),
             child: TextFormField(
               onChanged: (newValue) {},
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Enter Password",
                 labelText: "Password",
                 border: OutlineInputBorder(),
@@ -66,18 +63,18 @@ class _AuthHomPageState extends State<AuthHomPage> {
           ),
           Row(
             children: [
-              CustomCheckBox(),
-              Text(
+              const CustomCheckBox(),
+              const Text(
                 'Remember me',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Spacer(),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: RichText(
                   text: TextSpan(
                       text: 'Forget Password?',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.grey,
                           decoration: TextDecoration.underline),
                       recognizer: TapGestureRecognizer()),
@@ -92,19 +89,19 @@ class _AuthHomPageState extends State<AuthHomPage> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => HomePage(),
+                    builder: (context) => const HomePage(),
                   ),
                 );
               },
-              child: Text('Login my account'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xff3FB9B1),
-                side: BorderSide(color: Colors.black, width: 2),
+                backgroundColor: const Color(0xff3FB9B1),
+                side: const BorderSide(color: Colors.black, width: 2),
               ),
+              child: const Text('Login my account'),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
+          const Padding(
+            padding: EdgeInsets.all(30.0),
             child: Text(
               'Or Login with',
               style: TextStyle(fontWeight: FontWeight.bold),
@@ -117,13 +114,13 @@ class _AuthHomPageState extends State<AuthHomPage> {
               width: 375,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xffF4908E),
+                  side: const BorderSide(color: Colors.black, width: 2),
+                ),
+                child: const Text(
                   'Continue with Google',
                   style: TextStyle(color: Colors.black),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffF4908E),
-                  side: BorderSide(color: Colors.black, width: 2),
                 ),
               ),
             ),
@@ -135,19 +132,19 @@ class _AuthHomPageState extends State<AuthHomPage> {
               width: 375,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xffF9C7A6),
+                  side: const BorderSide(color: Colors.black, width: 2),
+                ),
+                child: const Text(
                   'Continue with Facebook',
                   style: TextStyle(color: Colors.black),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffF9C7A6),
-                  side: BorderSide(color: Colors.black, width: 2),
                 ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
+          const Padding(
+            padding: EdgeInsets.all(20.0),
             child: Text(
                 'by Continuing, you accept our Terms and \n            Conditions, Privacy Policy'),
           )

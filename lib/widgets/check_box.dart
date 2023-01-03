@@ -18,9 +18,9 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
         MaterialState.focused
       };
       if (states.any(interactiveStates.contains)) {
-        return Color(0xffFECAA9);
+        return const Color(0xffFECAA9);
       }
-      return Color(0xffFECAA9);
+      return const Color(0xffFECAA9);
     }
 
     return Checkbox(
