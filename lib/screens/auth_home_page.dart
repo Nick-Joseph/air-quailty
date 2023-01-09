@@ -2,6 +2,7 @@ import 'package:dribble_air_app/screens/home_page.dart';
 import 'package:dribble_air_app/widgets/check_box.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthHomPage extends StatefulWidget {
   const AuthHomPage({Key? key}) : super(key: key);

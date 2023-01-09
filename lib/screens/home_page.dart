@@ -1,7 +1,13 @@
+import 'package:dribble_air_app/screens/screens.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  void signUserOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +64,13 @@ class HomePage extends StatelessWidget {
                     height: 30,
                     width: 72,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: ((context) => DetailsPage()),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xffFECAA9),
                         side: const BorderSide(color: Colors.black, width: 2),
@@ -98,9 +110,11 @@ class HomePage extends StatelessWidget {
                                   height: 40,
                                   width: 40,
                                   child: Container(
-                                    decoration: const BoxDecoration(
-                                        color: Colors.red,
-                                        shape: BoxShape.rectangle),
+                                    decoration: BoxDecoration(
+                                      color: Colors.red,
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -154,9 +168,11 @@ class HomePage extends StatelessWidget {
                                 height: 40,
                                 width: 40,
                                 child: Container(
-                                  decoration: const BoxDecoration(
-                                      color: Colors.red,
-                                      shape: BoxShape.rectangle),
+                                  decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    shape: BoxShape.rectangle,
+                                    border: Border.all(),
+                                  ),
                                 ),
                               ),
                             ),
@@ -213,7 +229,9 @@ class HomePage extends StatelessWidget {
                         height: 35,
                         width: 72,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            signUserOut();
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xffFECAA9),
                             side:

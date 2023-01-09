@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "370177527300",
+    "project_id": "air-quality-app-4c34e",
+    "storage_bucket": "air-quality-app-4c34e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370177527300:android:c5a8e3cafd97093f91af51",
+        "android_client_info": {
+          "package_name": "com.example.dribble_air_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370177527300-50ffdiihii24g9q42jhppnra704e05h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv2VZNkFFUV7XxaiIZ2t4fIBc3a3GV9AE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370177527300-50ffdiihii24g9q42jhppnra704e05h1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "370177527300-6dtgtn5rdv5hq12eadm6ln86c7ipkrn0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dribbleAirApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
