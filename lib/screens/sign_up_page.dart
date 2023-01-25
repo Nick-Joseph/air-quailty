@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpPage extends StatefulWidget {
-  SignUpPage({Key? key}) : super(key: key);
+  final Function()? onPressed;
+  SignUpPage({Key? key, required this.onPressed}) : super(key: key);
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -27,8 +28,8 @@ class _SignUpPageState extends State<SignUpPage> {
         });
     try {
       if (passwordController.text == confirmPasswordController.text) {
-        // await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        //     email: emailController.text, password: passwordController.text);
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text);
         Navigator.pop(context);
       } else {
         showErrorMessage('Passwords dont match!');
@@ -61,15 +62,11 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
 // use a ternary operator to open/close the CircularProgressIndicator
-
 // find a way to toggle the show cCircularProgressIndicator
 // for example have a button that you're able to click to turn the dialog off and on
-
 //  if the user clicked sign up toggle the CircularProgressIndicator
 //  else dont toggle
-
 // pop the screen
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,14 +125,33 @@ class _SignUpPageState extends State<SignUpPage> {
                 width: 375,
                 child: ElevatedButton(
                   onPressed: () {
-                    // signUserUp();
-                    Navigator.pop(context);
+                    signUserUp();
+                    // Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xff3FB9B1),
                     side: const BorderSide(color: Colors.black, width: 2),
                   ),
                   child: const Text('Sign up'),
+                ),
+              ),
+            ),
+            Text('Already Have an account?'),
+            Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: SizedBox(
+                height: 30,
+                width: 100,
+                child: ElevatedButton(
+                  onPressed: widget.onPressed,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xffFECAA9),
+                    side: const BorderSide(color: Colors.black, width: 2),
+                  ),
+                  child: const Text(
+                    'Sign in',
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ),
             ),

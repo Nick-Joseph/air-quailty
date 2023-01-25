@@ -33,9 +33,18 @@ class DetailsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CustomCardDetail(),
-            CustomCardDetail(),
-            CustomCardDetail(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomCardDetail(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomCardDetail(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomCardDetail(),
+            ),
           ],
         ),
       ),

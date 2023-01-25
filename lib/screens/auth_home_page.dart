@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthHomPage extends StatefulWidget {
-  const AuthHomPage({Key? key}) : super(key: key);
+  final Function()? onPressed;
+  const AuthHomPage({Key? key, required this.onPressed}) : super(key: key);
 
   @override
   _AuthHomPageState createState() => _AuthHomPageState();
@@ -161,13 +162,7 @@ class _AuthHomPageState extends State<AuthHomPage> {
                     height: 30,
                     width: 100,
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: ((context) => SignUpPage()),
-                          ),
-                        );
-                      },
+                      onPressed: widget.onPressed,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xffFECAA9),
                         side: const BorderSide(color: Colors.black, width: 2),

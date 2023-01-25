@@ -21,9 +21,13 @@ class _LoginOrRegisterState extends State<LoginOrRegister> {
   @override
   Widget build(BuildContext context) {
     if (showLoginPage) {
-      return AuthHomPage();
+      return AuthHomPage(
+        onPressed: togglePages,
+      );
     } else {
-      return SignUpPage();
+      return SignUpPage(
+        onPressed: togglePages,
+      );
     }
   }
 }
