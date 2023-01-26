@@ -441,7 +441,41 @@ class HomePage extends StatelessWidget {
                               color: Colors.white,
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return Container(
+                                      height: 1200,
+                                      color: Colors.white,
+                                      child: Column(
+                                        children: <Widget>[
+                                          const Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                            child: Text(
+                                              'Add another city location',
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(20.0),
+                                            child: TextFormField(
+                                              onChanged: (newValue) {},
+                                              decoration: const InputDecoration(
+                                                hintText: "Search city",
+                                                border: OutlineInputBorder(),
+                                                prefixIcon: Icon(Icons.search),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
                               icon: Icon(Icons.graphic_eq_outlined),
                               color: Colors.white,
                             ),
