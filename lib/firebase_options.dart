@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '370177527300',
     projectId: 'air-quality-app-4c34e',
     storageBucket: 'air-quality-app-4c34e.appspot.com',
-    iosClientId: '370177527300-6dtgtn5rdv5hq12eadm6ln86c7ipkrn0.apps.googleusercontent.com',
+    iosClientId:
+        '370177527300-6dtgtn5rdv5hq12eadm6ln86c7ipkrn0.apps.googleusercontent.com',
     iosBundleId: 'com.example.dribbleAirApp',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '370177527300',
     projectId: 'air-quality-app-4c34e',
     storageBucket: 'air-quality-app-4c34e.appspot.com',
-    iosClientId: '370177527300-6dtgtn5rdv5hq12eadm6ln86c7ipkrn0.apps.googleusercontent.com',
+    iosClientId:
+        '370177527300-6dtgtn5rdv5hq12eadm6ln86c7ipkrn0.apps.googleusercontent.com',
     iosBundleId: 'com.example.dribbleAirApp',
   );
 }

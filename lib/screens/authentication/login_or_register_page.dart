@@ -1,5 +1,8 @@
+import 'package:dribble_air_app/screens/authentication/sign_up_page.dart';
 import 'package:dribble_air_app/screens/screens.dart';
 import 'package:flutter/material.dart';
+
+import 'auth_home_page.dart';
 
 class LoginOrRegister extends StatefulWidget {
   const LoginOrRegister({Key? key}) : super(key: key);

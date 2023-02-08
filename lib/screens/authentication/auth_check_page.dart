@@ -1,4 +1,5 @@
-import 'package:dribble_air_app/screens/login_or_register_page.dart';
+import 'package:dribble_air_app/screens/authentication/login_or_register_page.dart';
+
 import 'package:dribble_air_app/screens/screens.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

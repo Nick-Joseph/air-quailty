@@ -1,5 +1,5 @@
 import 'package:dribble_air_app/screens/home_page.dart';
-import 'package:dribble_air_app/screens/sign_up_page.dart';
+
 import 'package:dribble_air_app/widgets/check_box.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

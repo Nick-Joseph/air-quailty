@@ -35,7 +35,6 @@ class _SignUpPageState extends State<SignUpPage> {
         showErrorMessage('Passwords dont match!');
       }
       //pop loading circle
-
     } on FirebaseAuthException catch (e) {
       //pop the loading circle
       Navigator.pop(context);

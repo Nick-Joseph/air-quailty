@@ -1,4 +1,4 @@
-import 'package:dribble_air_app/screens/auth_check_page.dart';
+import 'package:dribble_air_app/screens/authentication/auth_check_page.dart';
 import 'package:dribble_air_app/screens/screens.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -32,12 +32,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SubjectBloc(),
-      child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: AuthPage(),
-        ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: AuthPage(),
     );
   }
 }
