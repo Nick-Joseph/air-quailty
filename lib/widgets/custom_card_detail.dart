@@ -1,9 +1,23 @@
+import 'package:dribble_air_app/model/weather.dart';
+import 'package:dribble_air_app/services/current_weather_client.dart';
+import 'package:dribble_air_app/services/weather_api_client.dart';
 import 'package:flutter/material.dart';
 
+import '../model/air_quality_model.dart';
+
 class CustomCardDetail extends StatelessWidget {
-  const CustomCardDetail({
+  CustomCardDetail({
     Key? key,
   }) : super(key: key);
+  AirQualityApiClient client = AirQualityApiClient();
+  AirQuality? data;
+  CurrentWeatherApiClient client1 = CurrentWeatherApiClient();
+  Weather? data1;
+
+  Future<void> getData() async {
+    data = await client.getCurrentAirQuality!;
+    data1 = await client1.getCurrentWeather('Orlando');
+  }
 
   @override
   Widget build(BuildContext context) {
