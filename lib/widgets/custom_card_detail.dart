@@ -49,7 +49,7 @@ class CustomCardDetail extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            'Jakarta',
+                            'Jarkarta',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           Text(

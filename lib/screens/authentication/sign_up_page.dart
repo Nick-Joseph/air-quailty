@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dribble_air_app/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,36 +13,86 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   //text editing controllers
-  final emailController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
+  final _cityNameController = TextEditingController();
 
-  final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _cityNameController.dispose();
+    super.dispose();
+  }
 
-  //user sign in method
-  void signUserUp() async {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        });
-    try {
-      if (passwordController.text == confirmPasswordController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: emailController.text, password: passwordController.text);
-        Navigator.pop(context);
-      } else {
-        showErrorMessage('Passwords dont match!');
-      }
-      //pop loading circle
-    } on FirebaseAuthException catch (e) {
-      //pop the loading circle
-      Navigator.pop(context);
-      //show error message
-      showErrorMessage(e.code);
+  Future signUserUp() async {
+    if (passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim());
+      //add user details
+      addUserDetails(
+        _firstNameController.text.trim(),
+        _lastNameController.text.trim(),
+        _emailController.text.trim(),
+        _cityNameController.text.trim(),
+      );
     }
   }
+
+  Future addUserDetails(
+    String firstName,
+    String lastName,
+    String email,
+    String cityName,
+  ) async {
+    await FirebaseFirestore.instance.collection('users').add({
+      'first name': firstName,
+      'last name': lastName,
+      'email': email,
+      'city': cityName,
+    });
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() ==
+        _confirmPasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  //user sign in method
+  // void signUserUp() async {
+  //   showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return Center(
+  //           child: CircularProgressIndicator(),
+  //         );
+  //       });
+  //   try {
+  //     if (_passwordController.text == _confirmPasswordController.text) {
+  //       await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //           email: _emailController.text, password: _passwordController.text);
+  //       Navigator.pop(context);
+  //     } else {
+  //       showErrorMessage('Passwords dont match!');
+  //     }
+  //     //pop loading circle
+  //   } on FirebaseAuthException catch (e) {
+  //     //pop the loading circle
+  //     Navigator.pop(context);
+  //     //show error message
+  //     showErrorMessage(e.code);
+  //   }
+  // }
 
 //error message to user
   void showErrorMessage(String message) {
@@ -85,7 +136,7 @@ class _SignUpPageState extends State<SignUpPage> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: TextFormField(
-                controller: emailController,
+                controller: _emailController,
                 onChanged: (newValue) {},
                 decoration: const InputDecoration(
                     hintText: "Enter Email",
@@ -96,7 +147,7 @@ class _SignUpPageState extends State<SignUpPage> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: TextFormField(
-                controller: passwordController,
+                controller: _passwordController,
                 onChanged: (newValue) {},
                 decoration: const InputDecoration(
                   hintText: "Enter Password",
@@ -108,11 +159,47 @@ class _SignUpPageState extends State<SignUpPage> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: TextFormField(
-                controller: confirmPasswordController,
+                controller: _confirmPasswordController,
                 onChanged: (newValue) {},
                 decoration: const InputDecoration(
                   hintText: "Confirm Password",
                   labelText: "Confirm Password",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextFormField(
+                controller: _firstNameController,
+                onChanged: (newValue) {},
+                decoration: const InputDecoration(
+                  hintText: "First Name",
+                  labelText: "First Name",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextFormField(
+                controller: _lastNameController,
+                onChanged: (newValue) {},
+                decoration: const InputDecoration(
+                  hintText: "Last Name",
+                  labelText: "Last Name",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextFormField(
+                controller: _cityNameController,
+                onChanged: (newValue) {},
+                decoration: const InputDecoration(
+                  hintText: "City Name",
+                  labelText: "City Name",
                   border: OutlineInputBorder(),
                 ),
               ),
