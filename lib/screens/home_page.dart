@@ -26,6 +26,17 @@ class HomePage extends StatelessWidget {
     data1 = await client1.getCurrentWeather('Orlando');
   }
 
+  List<String> docIDs = [];
+
+  Future getDocId() async {
+    await FirebaseFirestore.instance.collection('users').get().then(
+          (snapshot) => snapshot.docs.forEach((element) {
+            print(
+              element.get('first name'),
+            );
+          }),
+        );
+  }
   // Future getUserName(String firstName) async {
   //   await FirebaseFirestore.instance
   //       .collection('users')
@@ -92,6 +103,7 @@ class HomePage extends StatelessWidget {
                         width: 72,
                         child: ElevatedButton(
                           onPressed: () {
+                            getDocId();
                             showModalBottomSheet(
                               context: context,
                               builder: (BuildContext context) {
